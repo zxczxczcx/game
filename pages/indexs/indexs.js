@@ -1,53 +1,28 @@
-// pages/my/my.js
+// pages/indexs/indexs.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-  /**
-   *  获取当前用户信息
-   * @param {*} e 
-   */
-  onGotUserInfo: function (e) {
-    // console.log(e.detail.errMsg)
-    // console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
-  },
-  // TODO 未做添加
-  userInfo:function(e){
-    wx.getUserInfo({
-      lang: lang,
-      
-    })
-    wx.login({
-      success (res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'http://www.weixin.com/login',
-            data: {
-              code: res.code
-
-            },
-            success:function(b){
-              console.log(b)
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let _this=this
+    //发送网络请求
+    wx.request({
+      url: 'http://www.weixin.com/detail',
+      success:function(b){
+        console.log(b.data)
+        _this.setData({
+          goods:b.data
+        })
+      }
+    })
   },
 
   /**
@@ -97,10 +72,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
- 
- 
-
-
+  }
 })

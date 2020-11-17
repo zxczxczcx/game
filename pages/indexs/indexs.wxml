@@ -1,0 +1,5 @@
+<!--pages/indexs/indexs.wxml-->
+<!-- <text>pages/indexs/indexs.wxml</text> -->
+<view wx:for="{{goods}}">
+  商品名称: {{goods[index].goods_name}}
+</view>

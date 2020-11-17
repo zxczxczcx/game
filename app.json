@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/indexs/indexs",
     "pages/logs/logs",
     "pages/cart/cart",
     "pages/my/my"        
@@ -12,6 +13,11 @@
       "selectedIconPath":"img/home-select.png",
       "text": "首页"
     }, {
+      "pagePath": "pages/indexs/indexs",
+      "iconPath":"img/home.png",
+      "selectedIconPath":"img/home-select.png",
+      "text": "首页"
+    },{
       "pagePath": "pages/logs/logs",
       "iconPath":"img/order.png",
       "selectedIconPath":"img/order-select.png",
