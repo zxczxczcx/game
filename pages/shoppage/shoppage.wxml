@@ -1,0 +1,3 @@
+<!--pages/shoppage/shoppage.wxml-->
+<text>pages/shoppage/shoppage.wxml</text>
+<view>商品名称:{{goods.goods_name}}</view>

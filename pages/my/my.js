@@ -11,18 +11,14 @@ Page({
    *  获取当前用户信息
    * @param {*} e 
    */
-  onGotUserInfo: function (e) {
-    // console.log(e.detail.errMsg)
-    // console.log(e.detail.userInfo)
-    console.log(e.detail.rawData)
-  },
-  // TODO 未做添加
+  // onGotUserInfo: function (e) {          获取当前用户的信息 
+  //   // console.log(e.detail.errMsg)
+  //   // console.log(e.detail.userInfo)
+  //   console.log(e.detail.rawData)
+  // },
   userInfo:function(e){
-    wx.getUserInfo({
-      lang: lang,
-      
-    })
-    wx.login({
+    console.log(e)
+    wx.login({      
       success (res) {
         if (res.code) {
           //发起网络请求
@@ -32,8 +28,31 @@ Page({
               code: res.code
 
             },
-            success:function(b){
+            success:function(b){    //请求成功
+              //存 token
+              wx.setStorage({
+                data: 'token',
+                key: b.data.data.key,
+              })
               console.log(b)
+              //获取 用户 信息
+              wx.getUserInfo({
+                lang:"zh_CN",
+                success:function(res){
+                  console.log(res)
+                  let _this =  this 
+                  //设置变量  渲染页面
+                  
+
+                  //发送网络请求
+                  wx.request({
+                    url: 'http://www.weixin.com/user',
+                    data:{
+                      user: res.userInfo
+                    }
+                  })
+                }
+              })
             }
           })
         } else {

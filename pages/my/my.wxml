@@ -1,2 +1,3 @@
 <!--pages/my/my.wxml-->
+
 <button open-type="getUserInfo" type="warn" bindtap="userInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取头像昵称</button>

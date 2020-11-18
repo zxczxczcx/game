@@ -1,5 +1,41 @@
 <!--pages/indexs/indexs.wxml-->
 <!-- <text>pages/indexs/indexs.wxml</text> -->
-<view wx:for="{{goods}}">
-  商品名称: {{goods[index].goods_name}}
+  <!-- 轮播图 -->
+  <swiper
+      indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+      interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+      <block wx:for="{{imgurl}}" >
+        <swiper-item>
+          <image class="swiper-item" src='{{item}}'></image>
+        </swiper-item>
+      </block>
+  </swiper>
+<!-- 空白 -->
+<view class='space'></view>
+<!-- 导航栏 -->
+<!-- <view class='nav'></view> -->
+<view class="page-section-spacing">
+  <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="scroll" style="width: 100%">
+    <view id="demo1" class="scroll-view-item_H demo-text-1">全部</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">电视</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">电影</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">动漫</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">少儿</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">综艺</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">冒险</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">电视剧</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">电影</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">动漫</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">少儿</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">综艺</view>
+    <view id="demo1" class="scroll-view-item_H demo-text-1">冒险</view>
+  </scroll-view>
+</view>
+<!-- 空白 -->
+<view class='space'></view> 
+<!-- 商品列表 -->
+<view wx:for="{{goods}}" class='item' bindtap="shop_page" id="{{goods[index].goods_id}}">
+  <view class="photo">图片</view>
+  <view class='item_n'> 商品名称: {{goods[index].goods_name}}</view>
+  <view class='item_n'> 价钱: {{goods[index].shop_price}}</view>
 </view>

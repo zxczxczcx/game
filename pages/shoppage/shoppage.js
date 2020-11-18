@@ -1,37 +1,32 @@
-// pages/indexs/indexs.js
+// pages/shoppage/shoppage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgurl: [
-        '/img/nursing-banner.jpg', '/img/draw-banner.jpg', '/img/discount-banner.jpg'
-       ],
-    indicatorDots: true,
-    autoplay: true,
-    circular: true,
-    interval: 2000,
-    duration: 500,
-    previousMargin: 0,
-    nextMargin: 0
+      
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let _this=this
-    //发送网络请求
-    wx.request({
-      url: 'http://www.weixin.com/detail',
-      success:function(b){
-        console.log(b.data)
-        _this.setData({
-          goods:b.data
-        })
-      }
-    })
+      let id=options.goods_id;
+      let _this = this
+      //发送网络请求
+      wx.request({
+        url: 'http://www.weixin.com/shoppage',
+        data:{
+            goods_id:id
+        },
+        success:function(s){
+          _this.setData({
+            goods:s.data
+          })
+        }
+      })
+
   },
 
   /**
@@ -81,17 +76,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  shop_page:function(s){
-    let _this = this 
-    console.log(s)
-    //发起网络请求
-   wx.navigateTo({
-     url: '/pages/shoppage/shoppage?goods_id='+s.currentTarget.id,
-   })
-   
-      }
-    
-
-  
+  }
 })

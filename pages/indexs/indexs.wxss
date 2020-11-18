@@ -1,1 +1,48 @@
 /* pages/indexs/indexs.wxss */
+/* 轮播图 */
+
+/* 空白 */
+.space{
+  margin-bottom:1em;
+}
+/* 导航栏 */
+.nav{
+  height: 20px;
+  width: 100%;
+  border: 1px red solid; 
+}
+.page-section-spacing{
+  margin-top: 60rpx;
+}
+.scroll-view_H{
+  white-space: nowrap;
+}
+.scroll-view-item{
+  height: 300rpx;
+}
+.scroll-view-item_H{
+  display: inline-block;
+  width: 100rpx;
+  height: 30rpx;
+}
+/* 商品列表 */
+.item{
+  border: red 1px solid;
+  margin: 0 0 10px 10px;
+  height: 60px;
+}
+
+/* 商品图片*/
+.photo{
+  border: springgreen 1px solid;
+  float: left;
+  height: 100%;
+  width: 60px;
+  margin-right:10px ;
+}
+
+/* 图片 */
+.swiper-item{
+  width: 450px;
+  height: 150px;
+}

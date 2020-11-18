@@ -4,7 +4,9 @@
     "pages/indexs/indexs",
     "pages/logs/logs",
     "pages/cart/cart",
-    "pages/my/my"        
+    "pages/my/my",   
+    "pages/shoppage/shoppage" 
+
   ],
   "tabBar": {
     "list": [{
