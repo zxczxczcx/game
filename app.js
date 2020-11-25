@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    xcx_url: "http://www.weixin.com",
+    // xcxs_url: "https://2004shoping.bady.icu"
   }
 })

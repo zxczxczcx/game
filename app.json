@@ -6,7 +6,6 @@
     "pages/cart/cart",
     "pages/my/my",   
     "pages/shoppage/shoppage" 
-
   ],
   "tabBar": {
     "list": [{
@@ -39,7 +38,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "品优购",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",

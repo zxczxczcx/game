@@ -1,4 +1,8 @@
 // pages/my/my.js
+//获取应用实例
+const app = getApp()
+
+const xcx_url = app.globalData.xcx_url;
 Page({
 
   /**
@@ -9,49 +13,32 @@ Page({
   },
   /**
    *  获取当前用户信息
-   * @param {*} e 
+   * @param {*} 
    */
-  // onGotUserInfo: function (e) {          获取当前用户的信息 
-  //   // console.log(e.detail.errMsg)
-  //   // console.log(e.detail.userInfo)
-  //   console.log(e.detail.rawData)
-  // },
+  /* onGotUserInfo: function (e) {          获取当前用户的信息 
+    // console.log(e.detail.errMsg)
+     // console.log(e.detail.userInfo)
+   console.log(e.detail.rawData)
+  },*/
   userInfo:function(e){
-    console.log(e)
-    wx.login({      
+    // console.log(e)
+    //获取用户信息
+    let user = e.detail.userInfo
+    //获取token
+    wx.login({
       success (res) {
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://www.weixin.com/login',
+            url: xcx_url+'/login',
             data: {
-              code: res.code
-
+              code: res.code,
+              user: user
             },
-            success:function(b){    //请求成功
-              //存 token
+            success:function(res){
               wx.setStorage({
-                data: 'token',
-                key: b.data.data.key,
-              })
-              console.log(b)
-              //获取 用户 信息
-              wx.getUserInfo({
-                lang:"zh_CN",
-                success:function(res){
-                  console.log(res)
-                  let _this =  this 
-                  //设置变量  渲染页面
-                  
-
-                  //发送网络请求
-                  wx.request({
-                    url: 'http://www.weixin.com/user',
-                    data:{
-                      user: res.userInfo
-                    }
-                  })
-                }
+                data: res.data.data.token,
+                key: 'token',
               })
             }
           })
@@ -60,6 +47,7 @@ Page({
         }
       }
     })
+
   },
 
   /**
