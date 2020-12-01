@@ -1,115 +1,93 @@
-.container 
-{ 
-   display: flex; 
-   flex-direction: column;
-   align-items: center; 
-   justify-content: space-between;
-   box-sizing: border-box;
-}
-
-/*整体列表*/
-.carts-list 
-{ 
-   display: flex; 
-   flex-direction: column; 
-   padding: 20rpx 40rpx; 
-   margin-bottom: 80rpx;
-   padding: 0 40rpx;
-}
-
-/*每行单元格 width属性解决标题文字太短而缩略图偏移 */
-.carts-item 
-{ 
-   display: flex; 
-   flex-direction: row; 
-   height:150rpx;  
-   width:100%; border-bottom: 1px solid #eee; 
-   padding: 30rpx 0;
-}
-
-/*左部图片*/
-.carts-image 
-{ 
-   width:150rpx; 
-   height:150rpx; 
-}
-
-/*右部描述*/ 
-.carts-text
-{ 
-   width: 100%; 
-   display: flex; 
-   flex-direction: column; 
-   justify-content: space-between; 
-}
-
-/*右上部分标题*/
-.carts-title
- { 
-   margin: 10rpx; 
-   font-size: 30rpx;
- }
-
-/*右下部分价格与数量*/ 
-.carts-subtitle 
-{ 
-    font-size: 25rpx;
-    color:darkgray; 
-    padding: 0 20rpx; 
-    display: flex; 
-    flex-direction: row;
-    justify-content:space-between;
-}
-
-/*价格*/
-.carts-price 
-{ 
-   color: #f60;
-   font-size: 12px;
-} 
-/*复选框样式*/
-.carts-list icon 
-{
-   margin-top: 60rpx;
-   margin-right: 20rpx;
-}
-/*底部按钮*/
-.carts-footer
-{ 
-   width: 100%;
-   height: 80rpx; 
+.page_top{
    display: flex;
-   flex-direction: row; 
+   padding: 10rpx;
    justify-content: space-between;
-   background: #fff;
-   position: fixed;
-   bottom: 0;
-   border-top: 1px #eee solid;
+   background-color: #eeeeee;
+   line-height: 60rpx;
+   padding-right: 20rpx;
+}
+.cart .item{
+   display:flex;
+   align-items: center;
+   margin-left: 10rpx;   
+   justify-content: flex-start;
+   margin-top: 20rpx;
 }
 
-/*复选框*/
-.carts-footer icon 
-{ 
-   margin-left: 20rpx;
+.item .content {
+   margin-left: 10rpx;
+   margin-top: 0;
 }
 
-/*全选字样*/  
-.carts-footer text 
-{ 
+.item .content .price_info{
+   display:flex;
+   justify-content: space-between;
+   align-items: baseline;
+   width: auto;
+}
+
+/* 价格 */
+.item .content .price_info .price{
+   color:red;
+   margin-top: 50rpx;
+}
+
+/* 照片 */
+.cart .item image{
+   width: 200rpx;
+   height: 200rpx;
+}
+
+.cart .item .content .title{
    font-size: 30rpx;
-    margin-left: 8rpx;
-     line-height: 10rpx;
 }
 
-/*立即结算按钮*/  
-.carts-footer .button
- { 
-   line-height: 80rpx; 
+.cart .item .content .price_info .number{
+   display: flex;
+   border: 1rpx solid #eee;
+   border-radius: 10rpx;
    text-align: center;
-   width:220rpx; 
-   height: 80rpx;
-   background-color: #f60; 
-   color: white; 
-   font-size: 36rpx; 
-   border-radius: 0; border: 0; 
- }
+   margin-left: 200rpx;
+ 
+}
+
+.cart .item .content .price_info .number .decr{
+   border-right: 1rpx #eee solid;
+   width: 40rpx;
+}
+
+.cart .item .content .price_info .number input{
+   width: 45rpx;
+}
+
+.cart .item .content .price_info .number .incr{
+   border-left: 1rpx #eee solid;
+   width: 40rpx;
+}
+
+
+/* 底部 */
+.buttom{
+   display:flex;
+   background-color: #fff;
+   width: 100%;
+   height:100rpx;
+   align-items: center;
+   position:fixed;
+   bottom:0;
+   left:0;
+}
+
+.buttom .priceall{
+   margin-left: 30rpx;
+}
+
+.buttom .settle{
+   position: fixed;
+   right: 20rpx;
+   border: solid 1rp;
+   padding: 10rpx 15rpx;
+   background-color: orangered;
+}
+
+

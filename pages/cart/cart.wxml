@@ -1,26 +1,44 @@
-<view class="container carts-list">
-    <view wx:for="{{carts}}" class="carts-item" data-title="{{item.title}}" data-url="{{item.url}}" bindtap="bindViewTap">
-        <icon wx:if="{{item.selected}}" type="success_circle" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
-        <icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
-        <view>
-            <image class="carts-image" src="{{item.image}}" mode="aspectFill"/>
-        </view>
-        <view class="carts-text">
-            <text class="carts-title">{{item.title}}</text>
-            <view class="carts-subtitle">
-                <text class="carts-price">{{item.sum}}</text>
-                <text bindtap="bindMinus" data-index="{{index}}">-</text>
-                <text>{{item.num}}</text>
-                <text bindtap="bindPlus" data-index="{{index}}">+</text>
+<view class="page">
+    <!-- 顶部 -->
+    <view class="page_top">
+        <view class="top_left">共有x件</view>
+        <view class="top_right" bindtap="Cartdel">删除</view>
+    </view>
+    <!-- 顶部结束 -->
+    <!-- 内容 -->
+    
+        <view class="cart">
+            <checkbox-group bindchange="selectGoods">
+            <view class="item" wx:for="{{carts}}" wx:key="*this">
+                    <checkbox value="{{item.goods_id}}" checked="{{item.checked}}"></checkbox>
+                <view class="photo">
+                    <image src="//img.alicdn.com/bao/uploaded/i4/3037566405/O1CN01xjvon51xBXRLW34wh_!!0-item_pic.jpg_468x468q75.jpg_.webp" ></image>
+                </view>
+                <view class="content">
+                    <view class="title">{{item.goods_name}}</view>
+                    <view>规格：APP</view>
+                    <view class="price_info">
+                        <view class="price">${{item.shop_price}}</view>
+                        <!-- 数量 -->
+                        <view class="number">
+                            <view class="decr" data-goodsindex="{{index}}"  bindtap="decrgoods">-</view>
+                            <input value="{{item.cart_num}}"  />
+                            <view class="incr" data-goodsindex="{{index}}"  bindtap="incrgoods">+</view>
+                        </view>
+                        <!-- 数量结束 -->
+                    </view>
+                </view>
             </view>
+        </checkbox-group>
         </view>
+    <!-- 内容结束 -->
+    <!-- 底部 -->
+    <view class="buttom">
+        <checkbox-group bindchange="selectAll">
+                <checkbox checked="{{selectAll}}">全选</checkbox>
+        </checkbox-group>
+        <text class="priceall">总价:${{totalpriceAll}}</text>
+        <view class="settle">去结算</view>
     </view>
-</view>
-<view class="carts-footer">
-    <view bindtap="bindSelectAll">
-        <icon wx:if="{{selectedAllStatus}}" type="success_circle" size="20"/>
-        <icon wx:else type="circle" size="20" />
-        <text>全选{{total}}</text>
-    </view>
-    <view class="button">立即结算</view>
+    <!-- 底部结束 -->
 </view>

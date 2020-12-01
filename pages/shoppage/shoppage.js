@@ -49,11 +49,11 @@ Page({
         url: xcx_url+'/shoppage',
         data:{
             goods_id:id,
-            token:token
         },
         success:function(s){
+          console.log(s)
           _this.setData({
-            goods:s.data,
+            goods:s.data.data.data,
           })
         }
       })
@@ -137,6 +137,27 @@ Page({
     wx.switchTab({
       url: "/pages/cart/cart",
     })
+  },
+
+  /**
+   * 商品收藏  collect
+   */
+  collect:function(e){
+    let id = e.currentTarget.dataset.goodsid
+    wx.request({
+      url: xcx_url+'/collect',
+      data:{
+        goodsId:id,
+        token:wx.getStorageSync('token')
+      },
+      success:function(res){
+        wx.showToast({
+          title: res.data.msg,
+        })
+      }
+    })
+    
   }
+
 
 })

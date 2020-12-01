@@ -100,7 +100,6 @@ Page({
   /**跳转事件 */
   shop_page:function(s){
     let _this = this 
-    // console.log(s)
     //发起网络请求
     wx.navigateTo({
       url: '/pages/shoppage/shoppage?goods_id='+s.currentTarget.id,

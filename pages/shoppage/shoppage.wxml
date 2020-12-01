@@ -75,9 +75,9 @@
 <view class="foot-nav mt15" >
   <view class="flex con gridXt tc" >
     <view class="fast-links mr15 flex f12">
-      <view class="sub gridYr" bindtap='shoucang'>
+      <view class="sub gridYr" bindtap='collect' data-goodsid="{{goods.goods_id}}">
         <!-- <text class="iconfont {{is_shoucang==0?'icon-shoucang1':'icon-shoucang2'}}">收藏</text> -->
-        <text class="iconfont icon-shoucang">收藏</text>
+        <text class="iconfont icon-shoucang" >收藏</text>
       </view>
       <view class="sub kefu">
        <!-- <button open-type="contact"> -->
